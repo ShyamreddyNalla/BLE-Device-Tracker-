@@ -26,6 +26,9 @@ jobs:
       - name: Run unit tests
         run: ./gradlew clean testDebug
 
+      - name: Build APK
+        run: ./gradlew assembleDebug
+
   lint:
     runs-on: ubuntu-latest
 

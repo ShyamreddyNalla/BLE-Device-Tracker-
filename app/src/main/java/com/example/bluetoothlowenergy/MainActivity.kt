@@ -42,8 +42,8 @@ import com.google.accompanist.permissions.rememberMultiplePermissionsState
 @OptIn(ExperimentalPermissionsApi::class)
 class MainActivity : ComponentActivity() {
 
-    private lateinit var bluetoothAdapter: BluetoothAdapter //this is used for bluetooth scanning
-    private lateinit var scanner: BluetoothLeScanner
+    private lateinit var bluetoothAdapter: BluetoothAdapter //this is used for bluetooth funs
+    private lateinit var scanner: BluetoothLeScanner //this is used for bluetooth scanning
     @RequiresPermission(Manifest.permission.BLUETOOTH_CONNECT)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
