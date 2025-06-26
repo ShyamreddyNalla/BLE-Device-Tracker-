@@ -26,4 +26,18 @@ jobs:
       - name: Run unit tests
         run: ./gradlew clean testDebug
 
+  lint:
+    runs-on: ubuntu-latest
 
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      - name: Run Lint
+        run: ./gradlew lintDebug
+
+      - name: Upload html test report
+        uses: actions/upload-artifact@v4
+        with:
+          name: index.html
+          path: app/build/reports/lint-debug/index.html
