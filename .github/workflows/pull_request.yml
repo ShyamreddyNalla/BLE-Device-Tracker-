@@ -41,6 +41,21 @@ jobs:
            -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
            -d text="APK build complete! Download it here: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"  
 
+      - name: Send Email with APK
+        uses: dawidd6/action-send-mail@v3
+        with:
+            server_address: smtp.gmail.com
+            server_port: 465
+            username: ${{ secrets.EMAIL_USERNAME }}
+            password: ${{ secrets.EMAIL_PASSWORD }}
+            subject: Debug APK Build
+            to: shyamreddy799@gmail.com
+            from: ${{ secrets.EMAIL_USERNAME }}
+            body: |
+              Hi there!!
+              The APK has been built successfully.
+              Download it here: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            attachments: app/build/outputs/apk/debug/app-debug.apk
 #  lint:
 #    runs-on: ubuntu-latest
 #
